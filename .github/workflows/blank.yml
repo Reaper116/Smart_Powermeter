@@ -36,5 +36,5 @@ jobs:
   #      run: sudo apt-get update && sudo apt-get install make
 
       - name: Make Page
-        shell: bash
-        run: Make
+        uses: docker/build-push-action@v2
+      - run: Make
