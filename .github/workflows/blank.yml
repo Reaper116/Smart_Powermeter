@@ -32,8 +32,10 @@ jobs:
       - name: CD Page
         run: cd docs
 
-      - name: Get Packages
-        run: sudo apt-get update && sudo apt-get install make
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
 
-      - name: Make Page
-        run: Make
+      - name: run pip
+        run: pip-compile docs/requirements.in
