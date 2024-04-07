@@ -35,6 +35,15 @@ jobs:
         with:
           docs-folder: docs/
 
+      - name: Get next version code
+        id: next_ver_code
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG=$(gh release list -L 1 | awk -F '\t' '{print $3}')
+          if [ -z "$TAG" ]; then TAG=0; fi
+          echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
+
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@v2
         with:
