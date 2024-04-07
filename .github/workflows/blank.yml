@@ -32,9 +32,8 @@ jobs:
       - name: CD Page
         run: cd docs
 
-  #    - name: Get Packages
-  #      run: sudo apt-get update && sudo apt-get install make
+      - name: Get Packages
+        run: sudo apt-get update && sudo apt-get install make
 
       - name: Make Page
-        uses: docker/build-push-action@v2
-      - run: Make
+        run: Make
