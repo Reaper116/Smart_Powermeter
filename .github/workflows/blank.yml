@@ -30,7 +30,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: CD Page
-        run: ls
+        run: cd docs
 
       - name: Make Page
         run: Make
